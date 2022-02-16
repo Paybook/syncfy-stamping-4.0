@@ -1,0 +1,76 @@
+{
+    "api_key": "{{api_key}}",
+    "id_user": "{{id_user}}",
+    "invoice_data": {
+        "Version": "4.0",
+        "Serie": "SY-321",
+        "Folio": "542112",
+        "Fecha": "2022-02-14T04:56:41",
+        "SubTotal": "10.00",
+        "Descuento": "0.00",
+        "Moneda": "MXN",
+        "Total": "11.00",
+        "TipoDeComprobante": "E",
+        "Exportacion": "01",
+        "LugarExpedicion": "09300",
+        "CfdiRelacionados": [
+            {
+                "TipoRelacion": "01",
+                "CfdiRelacionado": [
+                    {
+                        "UUID": "1fac4464-1111-0000-1111-cd37179db12e"
+                    }
+                ]
+            }
+        ],
+        "Emisor": {
+            "Rfc": "EKU9003173C9",
+            "Nombre": "ESCUELA KEMPER URGATE SA DE CV",
+            "RegimenFiscal": "601"
+        },
+        "Receptor": {
+            "Rfc": "XOJI740919U48",
+            "Nombre": "INGRID XODAR JIMENEZ",
+            "DomicilioFiscalReceptor": "88965",
+            "RegimenFiscalReceptor": "621",
+            "UsoCFDI": "P01"
+        },
+        "Conceptos": [
+            {
+                "ClaveProdServ": "84111506",
+                "NoIdentificacion": null,
+                "Cantidad": "1.0",
+                "ClaveUnidad": "ACT",
+                "Unidad": null,
+                "Descripcion": "NC por devolución",
+                "ValorUnitario": "10.00",
+                "Importe": "10.00",
+                "Descuento": "0.00",
+                "ObjetoImp": "02",
+                "Impuestos": {
+                    "Traslados": [
+                        {
+                            "Base": "1",
+                            "Importe": "1",
+                            "Impuesto": "002",
+                            "TasaOCuota": "0.160000",
+                            "TipoFactor": "Tasa"
+                        }
+                    ]
+                }
+            }
+        ],
+        "Impuestos": {
+            "TotalImpuestosTrasladados": "1.00",
+            "Traslados": [
+                {
+                    "Base": "1.00",
+                    "Importe": "1.00",
+                    "Impuesto": "002",
+                    "TasaOCuota": "0.160000",
+                    "TipoFactor": "Tasa"
+                }
+            ]
+        }
+    }
+}

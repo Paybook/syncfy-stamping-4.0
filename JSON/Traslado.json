@@ -1,0 +1,43 @@
+{
+    "api_key": "{{api_key}}",
+    "id_user": "{{id_user}}",
+    "invoice_data": {
+        "Version": "4.0",
+        "Serie": "SYFY-0112",
+        "Folio": "A21356",
+        "Fecha": "2022-02-14T04:56:41",
+        "SubTotal": "0.00",
+        "Descuento": "0.00",
+        "Moneda": "MXN",
+        "Total": "0.00",
+        "TipoDeComprobante": "T",
+        "Exportacion": "01",
+        "LugarExpedicion": "09310",
+        "Emisor": {
+            "Rfc": "EKU9003173C9",
+            "Nombre": "ESCUELA KEMPER URGATE SA DE CV",
+            "RegimenFiscal": "601"
+        },
+        "Receptor": {
+            "Rfc": "XOJI740919U48",
+            "Nombre": "INGRID XODAR JIMENEZ",
+            "DomicilioFiscalReceptor": "88965",
+            "RegimenFiscalReceptor": "621",
+            "UsoCFDI": "P01"
+        },
+        "Conceptos": [
+            {
+                "ClaveProdServ": "50181906",
+                "NoIdentificacion": "None",
+                "Cantidad": "1.0",
+                "ClaveUnidad": "H87",
+                "Unidad": "Pieza",
+                "Descripcion": "Galletas",
+                "ValorUnitario": "0.00",
+                "Importe": "0.00",
+                "Descuento": "0.00",
+                "ObjetoImp": "01"
+            }
+        ]
+    }
+}

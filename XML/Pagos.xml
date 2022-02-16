@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/Pagos20 http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos20.xsd"
+	xmlns:pago20="http://www.sat.gob.mx/Pagos20" Version="4.0" Fecha="2022-02-15T18:25:07" SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="P" Exportacion="01" LugarExpedicion="38000"
+	xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<cfdi:Emisor Rfc="EKU9003173C9" Nombre="ESCUELA KEMPER URGATE SA DE CV" RegimenFiscal="601" />
+	<cfdi:Receptor Rfc="XOJI740919U48" Nombre="INGRID XODAR JIMENEZ" DomicilioFiscalReceptor="88965" RegimenFiscalReceptor="621" UsoCFDI="P01" />
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="ACT" Descripcion="Pago" ValorUnitario="0" Importe="0" ObjetoImp="01" />
+	</cfdi:Conceptos>
+	<cfdi:Complemento>
+		<pago20:Pagos Version="2.0"
+			xmlns:pago20="http://www.sat.gob.mx/Pagos20">
+			<pago20:Totales MontoTotalPagos="200.00" />
+			<pago20:Pago FechaPago="2022-01-24T01:20:33" FormaDePagoP="01" MonedaP="MXN" TipoCambioP="1" Monto="200.00" NumOperacion="12">
+				<pago20:DoctoRelacionado IdDocumento="a9543552-427e-4b0c-94e5-b86024dc10ea" Serie="FAC" Folio="0000032" MonedaDR="MXN" EquivalenciaDR="1" NumParcialidad="1" ImpSaldoAnt="200.00" ImpPagado="200.00" ImpSaldoInsoluto="0.00" ObjetoImpDR="01" />
+			</pago20:Pago>
+		</pago20:Pagos>
+		</cfdi:Complemento>
+	</cfdi:Comprobante>

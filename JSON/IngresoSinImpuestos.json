@@ -1,0 +1,47 @@
+{
+    "api_key": "{{api_key}}",
+    "id_user": "{{id_user}}",
+    "invoice_data": {
+        "Version": "4.0",
+        "Serie": "A",
+        "Folio": "1",
+        "Fecha": "2022-02-13T14:12:11",
+        "FormaPago": "99",
+        "SubTotal": "1000.00",
+        "Moneda": "MXN",
+        "Total": "1000.00",
+        "TipoDeComprobante": "I",
+        "MetodoPago": "PUE",
+        "LugarExpedicion": "45428",
+        "NumCtaPago": "NO IDENTIFICADA",
+        "Descuento": "0.00",
+        "TipoCambio": "1",
+        "Exportacion": "01",
+        "Emisor": {
+            "Rfc": "EKU9003173C9",
+            "Nombre": "ESCUELA KEMPER URGATE SA DE CV",
+            "RegimenFiscal": "603"
+        },
+        "Receptor": {
+            "Rfc": "XOJI740919U48",
+            "Nombre": "INGRID XODAR JIMENEZ",
+            "DomicilioFiscalReceptor": "88965",
+            "RegimenFiscalReceptor": "621",
+            "UsoCFDI": "G03"
+        },
+        "Conceptos": [
+            {
+                "ClaveProdServ": "85121502",
+                "NoIdentificacion": "None",
+                "Cantidad": "1.0",
+                "ClaveUnidad": "E48",
+                "Unidad": "Unidad de Servicio",
+                "Descripcion": "Consulta médica",
+                "ValorUnitario": "1000.00",
+                "Importe": "1000.00",
+                "Descuento": "0.00",
+                "ObjetoImp": "01"
+            }
+        ]
+    }
+}

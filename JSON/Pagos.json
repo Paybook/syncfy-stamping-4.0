@@ -1,0 +1,75 @@
+{
+    "api_key": "{{api_key}}",
+    "id_user": "{{id_user}}",
+    "invoice_data": {
+        "Version": "4.0",
+        "Fecha": "2022-02-15T01:45:59",
+        "SubTotal": "0",
+        "Total": "0",
+        "Moneda": "XXX",
+        "TipoDeComprobante": "P",
+        "LugarExpedicion": "38000",
+        "NoCertificado": "",
+        "Certificado": "",
+        "Exportacion": "01",
+        "Emisor": {
+            "Rfc": "EKU9003173C9",
+            "Nombre": "ESCUELA KEMPER URGATE SA DE CV",
+            "RegimenFiscal": "601"
+        },
+        "Receptor": {
+            "Rfc": "XOJI740919U48",
+            "Nombre": "INGRID XODAR JIMENEZ",
+            "DomicilioFiscalReceptor": "88965",
+            "RegimenFiscalReceptor": "621",
+            "UsoCFDI": "P01"
+        },
+        "Conceptos": [
+            {
+                "ClaveProdServ": "84111506",
+                "Cantidad": "1",
+                "ClaveUnidad": "ACT",
+                "Descripcion": "Pago",
+                "ValorUnitario": "0",
+                "Importe": "0",
+                "ObjetoImp": "01"
+            }
+        ],
+        "Complemento": {
+            "Any": [
+                {
+                    "Pago20:Pagos": {
+                        "Pago": [
+                            {
+                                "FechaPago": "2022-01-24T01:20:33",
+                                "FormaDePagoP": "01",
+                                "MonedaP": "MXN",
+                                "Monto": "200.00",
+                                "NumOperacion": "12",
+                                "TipoCambioP": "1",
+                                "DoctoRelacionado": [
+                                    {
+                                        "IdDocumento": "a9543552-427e-4b0c-94e5-b86024dc10ea",
+                                        "Serie": "FAC",
+                                        "Folio": "0000032",
+                                        "MonedaDR": "MXN",
+                                        "MetodoDePagoDR": "PPD",
+                                        "NumParcialidad": "1",
+                                        "ImpSaldoAnt": "200.00",
+                                        "ImpPagado": "200.00",
+                                        "ImpSaldoInsoluto": "0.00",
+                                        "ObjetoImpDR": "01",
+                                        "EquivalenciaDR": "1"
+                                    }
+                                ]
+                            }
+                        ],
+                        "Totales": {
+                            "MontoTotalPagos": "200.00"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

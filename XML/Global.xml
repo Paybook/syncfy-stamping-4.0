@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante
+	xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Exportacion="01" Folio="271" Fecha="2022-02-15T04:03:05" FormaPago="01" SubTotal="645.79" Moneda="MXN" Total="673.60" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="30140">
+	<cfdi:InformacionGlobal Periodicidad="01" Meses="01" Año="2022" />
+	<cfdi:Emisor Rfc="EKU9003173C9" Nombre="ESCUELA KEMPER URGATE SA DE CV" RegimenFiscal="601" />
+	<cfdi:Receptor Rfc="XAXX010101000" DomicilioFiscalReceptor="30140" RegimenFiscalReceptor="616" UsoCFDI="S01" Nombre="PUBLICO EN GENERAL"></cfdi:Receptor>
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 1" ValorUnitario="50.00" Importe="50.00" ObjetoImp="02" NoIdentificacion="000" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="50.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="8.00" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 2" ValorUnitario="250.00" Importe="250.00" ObjetoImp="02" NoIdentificacion="001" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="250.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 3" ValorUnitario="10.00" Importe="10.00" ObjetoImp="02" NoIdentificacion="002" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="10.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="1.60" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 4" ValorUnitario="123.00" Importe="123.00" ObjetoImp="03" NoIdentificacion="003" Unidad="ACT" />
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 5" ValorUnitario="55.55" Importe="55.55" ObjetoImp="02" NoIdentificacion="004" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="55.55" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="8.89" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta 6" ValorUnitario="98.99" Importe="98.99" ObjetoImp="02" NoIdentificacion="005" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="98.99" Impuesto="002" TipoFactor="Exento" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="01010101" Cantidad="1" ClaveUnidad="ACT" Descripcion="Venta TK00031" ValorUnitario="58.25" Importe="58.25" ObjetoImp="02" NoIdentificacion="006" Unidad="ACT">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="58.25" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="9.32" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+	</cfdi:Conceptos>
+	<cfdi:Impuestos TotalImpuestosTrasladados="27.81">
+		<cfdi:Traslados>
+			<cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Base="173.80" Importe="27.81" />
+			<cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Base="348.99" Importe="0.00" />
+			<cfdi:Traslado Impuesto="002" TipoFactor="Exento" TasaOCuota="0.000000" Base="348.99" Importe="0.00" />
+		</cfdi:Traslados>
+	</cfdi:Impuestos>
+	</cfdi:Comprobante>
