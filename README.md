@@ -8,7 +8,17 @@ The REST stamping services from Syncfy let you emit invoices [CFDI's](https://ww
 3. Get the invoices stamped through the services
 
 
-# ADD UPDATE FROM 3.3
+## Tha main changes of the 4.0 version are:
+- The next data fields are now required from issuer and recipient:
+    -   Fiscal Regime (RegimenFiscal)
+    -   Name (Nombre)
+    -   Fiscal Address (DomicilioFiscal) only required for the recipient
+- The issuer and recipient data must match with the register that the SAT have
+- The name must match exactly as you are registered on the SAT and it must match with the certificates
+- It now required to state if the invoices is for exportation on with the field: "Exportacion"
+- Now a global CFDI can be emitted to report operations for general public (gloabl cfdi)
+- The invoice cancellation now require to add a reason for cancellation code.
+
 
 # 1. Taxpayer
 
@@ -91,7 +101,7 @@ Response example:
 ```
 # 2. Invoices
 
-## Stamp Invoice
+## Stamp Invoices
 
 ### Stamp from XML
 
@@ -242,86 +252,97 @@ curl --location --request PUT 'https://sync.paybook.int/v1/invoicing/mx/invoices
 --header 'Content-Type: application/json' \
 --data-raw '
 {
+"reason" : "02",
 "api_key" : "{{api_key}}",
 "id_user" : "{{id_user}}"
 }'
 ```
 
-The cancelled invoices will remain stored on the system. 
+The cancellation request requires a reason for cancellation code:
+-  "01" : The CFDI have an error and it include a relation with othe CFDI
+-  "02" : The CFDI have an error and it don't include a relation
+-  "03" : The transaction that represent the invoice was not done
+-  "04" : Operation related with a global invoice
 
-IMPORTANT: The cancellation process can vary depending on the invoices, it sometimes requires the approbation 
+Note: The cancelled invoices will remain stored on the system for 24 months. 
 
-http://omawww.sat.gob.mx/factura/Paginas/cancela_procesocancelacion.htm#
-
-If the response 'success' igual a 'true', además del acuse de cancelación en formato XML, el cual proporcionan los proveedores de servicio de timbrado.
-
-
-
-
-## 5. Obtener PDF y enviar email
-
-
-#### Enviar una factura por email
+The response of cancellation is similar to this:
 ```
-POST invoicing/mx/invoices
+    "success": true,
+    "cancel_receipt": "<?xml version=\"1.0\" encoding=\"utf-8\"?><Acuse xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Fecha=\"2022-02-16T13:11:21.354328\" RfcEmisor=\"EKU9003173C9\"><Folios xmlns=\"http://cancelacfd.sat.gob.mx\"><UUID>CD7DC7D7-6C18-4092-B8F8-0F2589316EE1</UUID><EstatusUUID>201</EstatusUUID></Folios>...",
+    "code": "201",
+    "uuid": "CD7DC7D7-6C18-4092-B8F8-0F2589316EE1"
 ```
 
-Para enviar el email durante el timbrado de la factura se deben agregar el parámetro "email_data" a la petición de timbrado:
+- cancel_receipt: This the XML that the provider return as proof of cancellation request, the structure can vary so it's recomended to store as string. It contains two important elements the UUID and the EstatusUUID, that is the response status for the cancellation request.
+- code: This is the EstatusUUID that comes in the cancellation response, these are some possible response codes:
+    - 201 - UUID success cancellation request.
+    - 202 – UUID previously cancellation request.
+    - 203 - The issuer is not owner of the UUID.
+    - 204 - UUID is not aplicable for cancellation
+    - 205 - UUID not found.
+- success: It return true if the cancellation code is 201 or 202, else it will be false
+
+IMPORTANT: The success on cancellation request don't assure that the invoices is cancelled, it only assure that the cancellation request is valid, the process can vary depending on the invoices, under some conditions the cancellation requires the approbation of the recipient, the current process is explained on the [SAT cancelation site ](http://omawww.sat.gob.mx/factura/Paginas/cancela_procesocancelacion.htm#)
+
+
+
+
+#### Send email invoice 
+
+When you use the  POST invoicing/mx/invoices, optionally you can send ena email invoice that contains a basic PDF files and the XML CFDI.
+
+To send it on stamping you need to add the parameter "email_data" on the stamping request:
 
 ```
 {
     "api_key" : "{{sync_api_key}}",
     "id_user" : "{{sync_id_user}}",
-    "id_provider":"iofacturo",
-    "invoice_data": {} //datos json de la factura,
+    "invoice_data": {} 
     "email_data": {
-        "email": "emailcliente@email.com", //(obligatorio)
-        "reply": "miemail@email.com", //(opcional) 
-        "body": "<h1> Hola Mundo</h1>", //(opcional) 
-        "subject": "Email de factura" //(opcional)  
+        "email": "emailcliente@email.com", //(required)
+        "reply": "miemail@email.com", //(optional) 
+        "body": "<h1> Hola Mundo</h1>", //(optional) 
+        "subject": "Email de factura" //(optional)  
     }
 }
 ```
 
-- "email", es el email al que se enviará la factua, es obligatorio
-- "reply", es el email de respuesta que aparecera en el email de la factura, es opconal.
-- "body", es el contenido del email, puede ser texto plano o html, es opcional y si no se agrega, se envia en el contenido el RFC emisor, el receptor, el total de la factura y el UUID
-- "subject", es el asunto del email, es opcional y si no se agrega se envia como "Factura de {{RFC del emisor}}
+- "email" : Is the email of the recipient
+- "reply" : The email of the which will be put on the reply field (optional).
+- "body" : Is the content of the mail, it can be plain text or HTML (optional)
+- "subject" : Is the subject that will appear on the email (optional)
 
-#### Reenviar una factura por email
-Se usa el endpoint:
+#### Resend the email invoice
+
+You can resend a previously stamped invoice with the next endpoint:
 ```
 POST invoicing/mx/invoices/{{uuid}}/send
 ```
 
-Con los parámetros
+THe required parameters are:
 
 ```
 {
-    "api_key": la api key de paybook,
-    "id_user": el id del usuario,
+    "api_key": {{api_key}},
+    "id_user": {{id_user}},
     "email_data": {
-        "email": "emailcliente@email.com", //(obligatorio)
-        "reply": "miemail@email.com", //(opcional) 
-        "body": "<h1> Hola Mundo</h1>", //(opcional) 
-        "subject": "Email de factura" //(opcional)  
+        "email": "client_email@domain.com", //(required)
+        "reply": "support@mycompany.com", //(optional) 
+        "body": "<h1> Hello world</h1>", //(optional) 
+        "subject": "Here is your invoice" //(optional)  
     }
 }
 ```
 
-#### Obtener el PDF en la respuesta de timbrado y agregar comentarios
+#### Add comments to the PDF
 
-Durante el timbrado es posible obtener el archivo PDF de la factura en la repuesta, este se incluye en el campo "pdf", y se regresa como una cadena codificada en base64, la cual se puede convertir al recibirla en un archivo binario pdf.
-
-Adicionalmente se puede enviar el campo "pdf_comments", para que se agregue información en el campo de comentarios del archivo pdf para el cfdi impreso.
-
-Para obtener el archivo se envia:
+You can add some comments on the printed version of the invoice, you need to send the paramater "pdf_comments" on the stamping request:
 ```
 {
     "api_key": la api key de paybook,
     "id_user": el id del usuario,
-    "pdf": true,
-    "pdf_comments": "Comentarios para el PDF impreso",
+    "pdf_comments": "This the invoices for test sale",
     "invoice_data":  ...
 }
 ```
