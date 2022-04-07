@@ -1,0 +1,93 @@
+{
+    "api_key": "{{api_key}}",
+    "id_user": "{{id_user}}",
+    "invoice_data": {
+        "Version": "4.0",
+        "Serie": "A",
+        "Folio": "1811",
+        "Fecha": "2022-04-07T13:42:28",
+        "FormaPago": "99",
+        "SubTotal": "1000.00",
+        "Moneda": "MXN",
+        "Total": "890.00",
+        "TipoDeComprobante": "I",
+        "MetodoPago": "PPD",
+        "LugarExpedicion": "45428",
+        "NumCtaPago": "7103 BBVA BANCOMER",
+        "Exportacion": "01",
+        "Emisor": {
+            "Rfc": "EKU9003173C9",
+            "Nombre": "ESCUELA KEMPER URGATE",
+            "RegimenFiscal": "601"
+        },
+        "Receptor": {
+            "Rfc": "XOJI740919U48",
+            "Nombre": "INGRID XODAR JIMENEZ",
+            "DomicilioFiscalReceptor": "88965",
+            "RegimenFiscalReceptor": "621",
+            "UsoCFDI": "G03"
+        },
+        "Conceptos": [
+            {
+                "ClaveProdServ": "85101507",
+                "ClaveUnidad": "E48",
+                "Cantidad": "1",
+                "Unidad": "E48",
+                "Descripcion": "Centros asistenciales  de urgencia. Paciente: Adrian Hernandez",
+                "ValorUnitario": "1000.00",
+                "Importe": "1000.00",
+                "ObjetoImp": "02",
+                "Impuestos": {
+                    "Retenciones": [
+                        {
+                            "Base": "1000.00",
+                            "Impuesto": "001",
+                            "TipoFactor": "Tasa",
+                            "TasaOCuota": "0.100000",
+                            "Importe": "100.00"
+                        }
+                    ]
+                }
+            }
+        ],
+        "Impuestos": {
+            "TotalImpuestosRetenidos": "100.00",
+            "Retenciones": [
+                {
+                    "Impuesto": "001",
+                    "TipoFactor": "Tasa",
+                    "TasaOCuota": "0.100000",
+                    "Importe": "100.00"
+                }
+            ]
+        },
+        "Complemento": 
+            {
+                "Any": [
+                    {
+                        "implocal:ImpuestosLocales": {
+                            "@xmlns:implocal": "http://www.sat.gob.mx/implocal",
+                            "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                            "@xsi:schemaLocation": "http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd",
+                            "@version": "1.0",
+                            "@TotaldeRetenciones": "20",
+                            "@TotaldeTraslados": "10",
+                            "implocal:RetencionesLocales": [
+                                {
+                                    "@ImpLocRetenido": "5 al millar",
+                                    "@TasadeRetencion": "0.02",
+                                    "@Importe": "20.00"
+                                },
+                                {
+                                    "@ImpLocRetenido": "2 al millar",
+                                    "@TasadeRetencion": "0.01",
+                                    "@Importe": "10.00"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        
+    }
+}
